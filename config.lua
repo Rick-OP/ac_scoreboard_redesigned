@@ -6,7 +6,7 @@ return {
     settings = {
         title = {
             text = 'AC Scoreboard',
-            logo = 'https://cfx-nui-ac_scoreboard/web/build/logo.svg',
+            logo = 'logo.svg',
         },
 
         side = 'right',
@@ -53,50 +53,57 @@ return {
     groups = {
         {
             label = 'Police',
-            groups = {'police', 'sheriff'},
+            groups = {'police'},
             includeOffDuty = false,
+            onDutyRequired = true,
             icon = 'ic:round-local-police',
         },
         {
             label = 'EMS',
             groups = {'ambulance'},
             includeOffDuty = false,
+            onDutyRequired = true,
+            icon = 'ic:round-local-hospital',
         },
         {
             label = 'Mechanics',
-            groups = {'lsc', 'bennys', 'hayes'},
+            groups = {'mechanic', 'mechanic2'},
             includeOffDuty = true,
+            onDutyRequired = false,
             icon = 'mdi:wrench',
         },
         {
-            label = 'Taxi',
-            groups = {'taxi'},
+            label = 'Dealerships',
+            groups = {'cardealer', 'cardealer2'},
+            includeOffDuty = true,
+            onDutyRequired = false,
+            icon = 'mdi:car',
         },
     },
 
     -- Status indicators shown in the scoreboard
     statusIndicators = {
-        {
-            id = 'house_robbery',
-            label = 'House robbery',
-            icon = 'mdi:house',
-            defaultState = true,
-        },
-        {
-            id = 'store_robbery',
-            label = 'Store robbery',
-            icon = 'mdi:store',
-            defaultState = false,
-        },
-        {
-            id = 'bank_robbery',
-            label = 'Bank robbery',
-            icon = 'mdi:bank',
-            groupTrigger = {
-                groups = {'police', 'sheriff'},
-                minimumCount = 12,
-                includeOffDuty = true,
-            },
-        },
+        -- {
+        --     id = 'house_robbery',
+        --     label = 'House robbery',
+        --     icon = 'mdi:house',
+        --     defaultState = true,
+        -- },
+        -- {
+        --     id = 'store_robbery',
+        --     label = 'Store robbery',
+        --     icon = 'mdi:store',
+        --     defaultState = false,
+        -- },
+        -- {
+        --     id = 'bank_robbery',
+        --     label = 'Bank robbery',
+        --     icon = 'mdi:bank',
+        --     groupTrigger = {
+        --         groups = {'police', 'sheriff'},
+        --         minimumCount = 12,
+        --         includeOffDuty = true,
+        --     },
+        -- },
     },
 }

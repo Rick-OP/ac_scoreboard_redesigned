@@ -6,11 +6,20 @@
 </script>
 
 {#if $data.statusIndicators}
-  <div class="flex select-none flex-wrap items-center justify-center gap-2">
+  <div class="flex select-none flex-wrap items-center justify-center gap-3">
     {#each $data.statusIndicators as item}
       <Tooltip.Root openDelay={250} closeOnPointerDown={false} disableHoverableContent={true}>
         <Tooltip.Trigger>
-          <Icon icon={item.icon} class={cn('h-6 w-6', item.state ? 'text-green-500' : 'text-red-500')} />
+          <div
+            class={cn(
+              'rounded-full p-2.5 transition-all duration-300 border',
+              item.state
+                ? 'bg-primary/25 text-primary border-primary/40 hover:bg-primary/35 hover:scale-110'
+                : 'bg-destructive/25 text-destructive border-destructive/40 hover:bg-destructive/35 hover:scale-110'
+            )}
+          >
+            <Icon icon={item.icon} class="h-5 w-5" />
+          </div>
         </Tooltip.Trigger>
         <Tooltip.Content>
           <p>{item.label}</p>
