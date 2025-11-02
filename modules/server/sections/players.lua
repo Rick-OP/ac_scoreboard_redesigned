@@ -48,31 +48,6 @@ local function getPlayerJobData(playerId)
     return nil, false
 end
 
-local function doesGroupRequireOnDuty(jobName)
-    for _, group in ipairs(Config.groups) do
-        if group.onDutyRequired then
-            for _, groupJob in ipairs(group.groups) do
-                if groupJob == jobName then
-                    return true
-                end
-            end
-        end
-    end
-    return false
-end
-
-local function shouldShowPlayer(jobName, onDuty)
-    if not jobName then return false end
-    
-    local requiresOnDuty = doesGroupRequireOnDuty(jobName)
-    
-    if requiresOnDuty then
-        return onDuty
-    else
-        return true
-    end
-end
-
 local function invalidateCache()
     cacheValid = false
 end
@@ -82,15 +57,11 @@ local function rebuildCache()
     local index = 1
 
     for playerId, name in pairs(Players) do
-        local jobName, onDuty = getPlayerJobData(playerId)
-        
-        if shouldShowPlayer(jobName, onDuty) then
-            cachedPlayersArray[index] = {
-                name = name,
-                id = playerId,
-            }
-            index += 1
-        end
+        cachedPlayersArray[index] = {
+            name = name,
+            id = playerId,
+        }
+        index += 1
     end
 
     cacheValid = true
@@ -129,31 +100,7 @@ if framework == 'qb' or framework == 'qbx' then
             Players[playerId] = GetPlayerName(playerId)
         end
         
-        local newJobName, newOnDuty = getJobData(job)
-        local requiresOnDuty = doesGroupRequireOnDuty(newJobName)
-        
-        if requiresOnDuty then
-            if newOnDuty then
-                invalidateCache()
-            else
-                invalidateCache()
-            end
-        else
-            invalidateCache()
-        end
-    end)
-    
-    AddEventHandler('QBCore:Server:SetDuty', function(playerId, onDuty)
-        if not Players[playerId] then return end
-        
-        local jobName, _ = getPlayerJobData(playerId)
-        if not jobName then return end
-        
-        local requiresOnDuty = doesGroupRequireOnDuty(jobName)
-        
-        if requiresOnDuty then
-            invalidateCache()
-        end
+        invalidateCache()
     end)
     
 elseif framework == 'esx' then
@@ -162,18 +109,7 @@ elseif framework == 'esx' then
             Players[playerId] = GetPlayerName(playerId)
         end
         
-        local newJobName, newOnDuty = getJobData(job)
-        local requiresOnDuty = doesGroupRequireOnDuty(newJobName)
-        
-        if requiresOnDuty then
-            if newOnDuty then
-                invalidateCache()
-            else
-                invalidateCache()
-            end
-        else
-            invalidateCache()
-        end
+        invalidateCache()
     end)
 end
 
