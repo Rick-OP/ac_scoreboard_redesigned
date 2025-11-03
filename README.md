@@ -49,10 +49,10 @@ This is an optimized and redesigned fork of the original [AC Scoreboard](https:/
   - Improved typography and spacing throughout
   - Enhanced status indicators with better visual feedback
   - Polished footer with improved button styling
+  - Search functionality to filter players by ID or name
 
 #### 🔧 Bug Fixes & Improvements
 
-- Fixed icon name for ambulance group (`ic:round-local-hospital`)
 - Improved player card layout consistency
 - Better hover states without problematic CSS effects
 - Optimized scrollbar styling to match theme
@@ -70,6 +70,7 @@ This is an optimized and redesigned fork of the original [AC Scoreboard](https:/
 - Total player count and copyable server ID
 - **NEW**: `onDutyRequired` config option for per-group duty filtering
 - **NEW**: Optimized performance with intelligent caching
+- **NEW**: Search players by ID or name
 
 ## Dependencies
 - [ox_lib](https://github.com/communityox/ox_lib) (3.27.0+)
