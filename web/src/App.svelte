@@ -60,7 +60,7 @@
 {#if isEnvBrowser()}
   <div class="absolute flex w-full justify-center">
     <button
-      class="m-2 rounded-md bg-slate-800 px-4 py-2"
+      class="m-2 rounded-xl bg-card border border-border/50 px-4 py-2.5 font-semibold text-sm transition-all duration-300 hover:border-primary/60 hover:-translate-y-0.5"
       onclick={() => debugData([{ action: 'setVisible', data: true }], 0)}>Show</button
     >
   </div>

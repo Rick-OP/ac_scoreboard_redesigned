@@ -19,7 +19,10 @@
   {transition}
   {transitionConfig}
   {sideOffset}
-  class={cn('z-50 overflow-hidden rounded-md bg-slate-700 px-2 py-1 text-xs', className)}
+  class={cn(
+    'z-50 overflow-hidden rounded-xl bg-popover border border-border/50 px-3.5 py-2 text-xs text-popover-foreground',
+    className
+  )}
   {...$$restProps}
 >
   <slot />
