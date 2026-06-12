@@ -1,5 +1,5 @@
-![](https://img.shields.io/github/downloads/acscripts/ac_scoreboard/total?logo=github)
-![](https://img.shields.io/github/v/release/acscripts/ac_scoreboard?logo=github)
+![](https://img.shields.io/github/downloads/Rick-OP/ac_scoreboard_redesigned/total?logo=github)
+![](https://img.shields.io/github/v/release/Rick-OP/ac_scoreboard_redesigned?logo=github)
 
 ## Introduction
 **AC Scoreboard** is the ultimate scoreboard solution for your server.
